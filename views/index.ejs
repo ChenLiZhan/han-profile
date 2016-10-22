@@ -1,11 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <base href="/">
   </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <body ng-controller="AppCtrl">
+    <div class="container">
+      <nav>
+        <h1 class="title"><%= title %></h1>
+          <span class="cat-title">PHOTO</span>
+          <ul>
+              <li><a class="cat-sub-title" href="#">UNDEFINED中文測試</a></li>
+              <li><a class="cat-sub-title" href="#">UNDEFINED</a></li>
+              <li><a class="cat-sub-title" href="#">UNDEFINED</a></li>
+              <li><a class="cat-sub-title" href="#">UNDEFINED</a></li>
+          </ul>
+          <span class="cat-title">VIDEO</span>
+          <ul>
+            <li><a class="cat-sub-title" href="#">UNDEFINED</a></li>
+            <li><a class="cat-sub-title" href="#">UNDEFINED</a></li>
+            <li><a class="cat-sub-title" href="#">UNDEFINED</a></li>
+            <li><a class="cat-sub-title" href="#">UNDEFINED</a></li>
+          </ul>
+          <span class="cat-title">About Me</span>
+
+      </nav> 
+      <div class="content">
+        <div ui-view autoscroll="true"></div>
+      </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/components/angular/angular.min.js"></script>
+    <script src="/components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!-- customize -->
+    <script src="/javascripts/app.js"></script>
+    <script src="/javascripts/controller.js"></script>
+    <script src="/javascripts/script.js"></script>
+    <script src="/javascripts/filters.js"></script>
+    <script src="/javascripts/directives.js"></script>
   </body>
 </html>

@@ -1,8 +1,47 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-family: "Times New Roman";
 }
 
 a {
-  color: #00B7FF;
+  color: black;
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+}
+
+nav {
+  width: 30%;
+}
+
+li {
+  list-style-type: none;
+}
+
+.cat-title {
+  font-family: "Times New Roman";
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: MyFont;
+  src: local("新細明體");
+  unicode-range: U+4E00-9FFF;
+}
+
+@font-face {
+  font-family: MyFont;
+  src: local("Times New Roman");
+  unicode-range: U+00-024F;
+}
+
+.cat-sub-title {
+  font-family: MyFont;
+}
+
+.title {
+  font-size: 33px;
 }
