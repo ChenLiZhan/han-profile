@@ -9,6 +9,11 @@ a {
   text-decoration: none;
 }
 
+h1 {
+  padding: 0;
+  margin: 0;
+}
+
 .container {
   display: flex;
 }
@@ -44,4 +49,6 @@ li {
 
 .title {
   font-size: 33px;
+  margin-bottom: 25px;
+  font-weight: bold;
 }
