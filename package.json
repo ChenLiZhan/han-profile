@@ -2,7 +2,7 @@
   "name": "han-profile",
   "version": "0.0.0",
   "engines": {
-    "node": "2.5.0",
+    "node": "5.11.1",
     "npm": "3.10.9"
   },
   "private": true,
