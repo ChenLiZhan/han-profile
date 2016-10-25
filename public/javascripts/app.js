@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ui.router', 'ngLodash']);
+var app = angular.module('myApp', ['ui.router', 'ngLodash', 'myApp.filters']);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $controllerProvider, $locationProvider) {
   // make the controllers be global
@@ -14,7 +14,18 @@ app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$loc
       url: '/photo/:index',
       templateUrl: 'partials/photos.html',
       controller: 'Photos'
+    })
+    .state('video', {
+      url: '/video/:index',
+      templateUrl: 'partials/videos.html',
+      controller: 'Videos'
+    })
+    .state('about', {
+      url: '/about',
+      templateUrl: 'partials/about.html',
+      controller: 'About'
     });
+
 
   $urlRouterProvider.otherwise('/');
 

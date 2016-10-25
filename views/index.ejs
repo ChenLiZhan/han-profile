@@ -17,12 +17,9 @@
           </ul>
           <span class="cat-title">VIDEO</span>
           <ul>
-            <li><a class="cat-sub-title" href="#">UNDEFINED</a></li>
-            <li><a class="cat-sub-title" href="#">UNDEFINED</a></li>
-            <li><a class="cat-sub-title" href="#">UNDEFINED</a></li>
-            <li><a class="cat-sub-title" href="#">UNDEFINED</a></li>
+              <li ng-repeat="category in videosCategories"><a class="cat-sub-title" ng-href="/video/{{$index}}">{{category}}</a></li>
           </ul>
-          <span class="cat-title">About Me</span>
+          <span class="cat-title"><a href="/about">About Me</a></span>
 
       </nav> 
       <div class="content">

@@ -21,11 +21,15 @@ h1 {
 nav {
   width: 23%;
   text-align: right;
-  margin-right: 0.5%;
+  margin-right: 1.5%;
 }
 
 .content {
-  width: 76.5%;
+  width: 75.5%;
+}
+
+ul {
+  margin-top: 3px;
 }
 
 li {

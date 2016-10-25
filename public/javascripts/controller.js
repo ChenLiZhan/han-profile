@@ -7,8 +7,14 @@ function AppCtrl($rootScope, $scope, $location, $http, lodash) {
     $http({
       method: 'GET',
       url: '/api/v1/photos/categories'
-    }).success(function(response) {
-      $rootScope.photosCategories = response.data;
+    }).success(function(responsePhoto) {
+      $http({
+        method: 'GET',
+        url: '/api/v1/videos/categories'
+      }).success(function(responseVideo) {
+        $rootScope.photosCategories = responsePhoto.data;
+        $rootScope.videosCategories = responseVideo.data;
+      })
     });
   };
 
@@ -18,6 +24,16 @@ function AppCtrl($rootScope, $scope, $location, $http, lodash) {
       url: '/api/v1/photos'
     }).success(function(response) {
       $rootScope.photosData = response.data;
+      callback();
+    })
+  };
+
+  $rootScope.getVideos = function(callback) {
+    $http({
+      method: 'GET',
+      url: '/api/v1/Videos'
+    }).success(function(response) {
+      $rootScope.videosData = response.data;
       callback();
     })
   };
@@ -59,3 +75,20 @@ function Photos($rootScope, $scope, $location, $http, $stateParams, lodash) {
 };
 
 Photos.$inject = ['$rootScope', '$scope', '$location', '$http', '$stateParams', 'lodash'];
+
+function Videos($rootScope, $scope, $location, $http, $stateParams, lodash) {
+  $rootScope.setMenu();
+  $rootScope.getVideos(function() {
+    $rootScope.video = $rootScope.videosData[$stateParams.index];
+    console.log($rootScope.video.items[0]);
+  });
+
+};
+
+Videos.$inject = ['$rootScope', '$scope', '$location', '$http', '$stateParams', 'lodash'];
+
+function About($rootScope, $scope, $location, $http, $stateParams, lodash) {
+  $rootScope.setMenu();
+};
+
+About.$inject = ['$rootScope', '$scope', '$location', '$http', '$stateParams', 'lodash'];

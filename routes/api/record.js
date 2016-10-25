@@ -75,3 +75,49 @@ exports.getPhotoCategories = function(req, res) {
     });
   });
 };
+
+exports.getVideos = function(req, res) {
+  getSheet(1, function(sheet) {
+    sheet.getRows(function(err, rows) {
+      var videos = [];
+
+      _.each(rows, function(row) {
+        findCategoryResult = _.findWhere(videos, {
+          category: row.category
+        });
+        videos.push({
+          category: row.category,
+          items: [{
+            title: row.title,
+            description: row.description,
+            url: row.url
+          }]
+        });
+      });
+
+      return res.json({
+        success: true,
+        data: videos
+      });
+    });
+  });
+};
+
+exports.getVideoCategories = function(req, res) {
+  getSheet(1, function(sheet) {
+    sheet.getRows(function(err, rows) {
+      var categories = [];
+
+      for (var i = 0; i < rows.length; i++) {
+        if (categories.indexOf(rows[i].category) === -1) {
+          categories.push(rows[i].category);
+        }
+      }
+
+      return res.json({
+        success: true,
+        data: categories
+      });
+    });
+  });
+};
