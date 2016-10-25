@@ -1,6 +1,10 @@
 {
   "name": "han-profile",
   "version": "0.0.0",
+  "engines": {
+    "node": "2.5.0",
+    "npm": "3.10.9"
+  },
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
