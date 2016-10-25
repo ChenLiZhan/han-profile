@@ -9,22 +9,22 @@ app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$loc
       url: '/',
       templateUrl: 'partials/index.html',
       controller: 'Index'
-    })
-    .state('photo', {
-      url: '/photo/:index',
-      templateUrl: 'partials/photos.html',
-      controller: 'Photos'
-    })
-    .state('video', {
-      url: '/video/:index',
-      templateUrl: 'partials/videos.html',
-      controller: 'Videos'
-    })
-    .state('about', {
-      url: '/about',
-      templateUrl: 'partials/about.html',
-      controller: 'About'
     });
+  // .state('photo', {
+  //   url: '/photo/:index',
+  //   templateUrl: 'partials/photos.html',
+  //   controller: 'Photos'
+  // })
+  // .state('video', {
+  //   url: '/video/:index',
+  //   templateUrl: 'partials/videos.html',
+  //   controller: 'Videos'
+  // })
+  // .state('about', {
+  //   url: '/about',
+  //   templateUrl: 'partials/about.html',
+  //   controller: 'About'
+  // });
 
 
   $urlRouterProvider.otherwise('/');

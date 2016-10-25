@@ -3,6 +3,12 @@
 /* controllers */
 
 function AppCtrl($rootScope, $scope, $location, $http, lodash) {
+  $rootScope.photos = [];
+  $rootScope.videos = [];
+  $scope.showPhotos = 0;
+  $scope.showVideos = 0;
+  $scope.showAbout = 1;
+
   $rootScope.setMenu = function() {
     $http({
       method: 'GET',
@@ -38,24 +44,9 @@ function AppCtrl($rootScope, $scope, $location, $http, lodash) {
     })
   };
 
-  $rootScope.setMenu();
-  // $rootScope.getPhotos(function() {
-  //   $rootScope.photos = $rootScope.photosData;
-  //   console.log($scope.photos);
-  // });
-};
-
-AppCtrl.$inject = ['$rootScope', '$scope', '$location', '$http', 'lodash'];
-
-function Index($rootScope, $scope, $location, $http) {};
-
-Index.$inject = ['$rootScope', '$scope', '$location', '$http'];
-
-function Photos($rootScope, $scope, $location, $http, $stateParams, lodash) {
-  $rootScope.setMenu();
-  $rootScope.getPhotos(function() {
-    $rootScope.photos = $rootScope.photosData[$stateParams.index];
-
+  $scope.photosMode = function(index) {
+    $rootScope.photos = [];
+    $rootScope.photos = $rootScope.photosData[index];
     var totalWidth = 0
     lodash.each($rootScope.photos.items, function(item, index) {
       var image = new Image();
@@ -65,30 +56,81 @@ function Photos($rootScope, $scope, $location, $http, $stateParams, lodash) {
         height = this.height;
         width = width * (500 / height)
         totalWidth = totalWidth + width;
-        console.log(totalWidth);
         $scope.innerBoxWidthStyle = totalWidth + 30 * $rootScope.photos.items.length;
       }
       image.src = item.url;
     });
-  });
+    $scope.showPhotos = 1;
+    $scope.showVideos = 0;
+    $scope.showAbout = 0;
+  };
 
-};
+  $scope.videosMode = function(index) {
+    $rootScope.video = [];
+    $rootScope.video = $rootScope.videosData[index].items[0];
+    $scope.showPhotos = 0;
+    $scope.showVideos = 1;
+    $scope.showAbout = 0;
+  };
 
-Photos.$inject = ['$rootScope', '$scope', '$location', '$http', '$stateParams', 'lodash'];
+  $scope.aboutMode = function() {
+    $scope.showPhotos = 0;
+    $scope.showVideos = 0;
+    $scope.showAbout = 1;
+  };
 
-function Videos($rootScope, $scope, $location, $http, $stateParams, lodash) {
   $rootScope.setMenu();
+  $rootScope.getPhotos(function() {
+    $rootScope.photos = $rootScope.photosData;
+  });
   $rootScope.getVideos(function() {
-    $rootScope.video = $rootScope.videosData[$stateParams.index];
-    console.log($rootScope.video.items[0]);
-  });
-
+    $rootScope.videos = $rootScope.videosData;
+  })
 };
 
-Videos.$inject = ['$rootScope', '$scope', '$location', '$http', '$stateParams', 'lodash'];
+AppCtrl.$inject = ['$rootScope', '$scope', '$location', '$http', 'lodash'];
 
-function About($rootScope, $scope, $location, $http, $stateParams, lodash) {
-  $rootScope.setMenu();
-};
+function Index($rootScope, $scope, $location, $http) {};
 
-About.$inject = ['$rootScope', '$scope', '$location', '$http', '$stateParams', 'lodash'];
+Index.$inject = ['$rootScope', '$scope', '$location', '$http'];
+
+// function Photos($rootScope, $scope, $location, $http, $stateParams, lodash) {
+//   $rootScope.setMenu();
+
+//   $rootScope.getPhotos(function() {
+//     $rootScope.photos = $rootScope.photosData[$stateParams.index];
+
+//     var totalWidth = 0
+//     lodash.each($rootScope.photos.items, function(item, index) {
+//       var image = new Image();
+//       var width, height;
+//       image.onload = function() {
+//         width = this.width;
+//         height = this.height;
+//         width = width * (500 / height)
+//         totalWidth = totalWidth + width;
+//         $scope.innerBoxWidthStyle = totalWidth + 30 * $rootScope.photos.items.length;
+//       }
+//       image.src = item.url;
+//     });
+//   });
+
+// };
+
+// Photos.$inject = ['$rootScope', '$scope', '$location', '$http', '$stateParams', 'lodash'];
+// function Videos($rootScope, $scope, $location, $http, $stateParams, lodash) {
+//   $rootScope.setMenu();
+//   $rootScope.getVideos(function() {
+//     $rootScope.video = $rootScope.videosData[$stateParams.index];
+//     console.log($rootScope.video.items[0]);
+//   });
+
+// };
+
+// Videos.$inject = ['$rootScope', '$scope', '$location', '$http', '$stateParams', 'lodash'];
+
+// function About($rootScope, $scope, $location, $http, $stateParams, lodash) {
+//   $rootScope.setMenu();
+// };
+
+// About.$inject = ['$rootScope', '$scope', '$location', '$http', '$stateParams', 'lodash'];
