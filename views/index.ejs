@@ -13,10 +13,7 @@
       <nav>
           <span class="cat-title">PHOTO</span>
           <ul>
-              <li><a class="cat-sub-title" href="#">UNDEFINED中文測試</a></li>
-              <li><a class="cat-sub-title" href="#">UNDEFINED</a></li>
-              <li><a class="cat-sub-title" href="#">UNDEFINED</a></li>
-              <li><a class="cat-sub-title" href="#">UNDEFINED</a></li>
+              <li ng-repeat="category in photosCategories"><a class="cat-sub-title" ng-href="/photo/{{$index}}">{{category}}</a></li>
           </ul>
           <span class="cat-title">VIDEO</span>
           <ul>
@@ -33,11 +30,11 @@
       </div>
     </div>
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="/components/angular/angular.min.js"></script>
     <script src="/components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/components/ng-lodash/build/ng-lodash.min.js"></script>
     <!-- customize -->
     <script src="/javascripts/app.js"></script>
     <script src="/javascripts/controller.js"></script>

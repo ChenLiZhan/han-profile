@@ -1,0 +1,26 @@
+<style>
+  .out-box {
+    width: 100%;
+    height: 500px;
+    overflow: auto;
+    padding-left: 5px;
+  }
+
+  .inner-box {
+    height: 500px;
+    overflow: scroll;
+  }
+
+  div img {
+    float: left;
+    display: inline;
+    height: 500px;
+    margin-right: 30px;
+  }
+</style>
+
+<div class="out-box">
+  <div class="inner-box" style="width: {{innerBoxWidthStyle}}px">
+    <img id="photo-{{$index}}" ng-repeat="(index, value) in photos.items" ng-src="{{value.url}}" alt="{{value.title}}" />
+  </div>
+</div>

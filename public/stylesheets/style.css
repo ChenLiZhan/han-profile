@@ -19,7 +19,13 @@ h1 {
 }
 
 nav {
-  width: 30%;
+  width: 23%;
+  text-align: right;
+  margin-right: 0.5%;
+}
+
+.content {
+  width: 76.5%;
 }
 
 li {
@@ -45,6 +51,7 @@ li {
 
 .cat-sub-title {
   font-family: MyFont;
+  margin: 5px 0px;
 }
 
 .title {
