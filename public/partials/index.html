@@ -17,6 +17,10 @@
     height: 500px;
     margin-right: 30px;
   }
+
+  .about {
+    width: 80%;
+  }
 </style>
 <div ng-if="showPhotos">
   <div class="out-box">
@@ -30,6 +34,35 @@
   <div class="cat-title">{{video.title}}</div>
   <div class="cat-sub-title" style="width: 70%;">{{video.description}}</div>
 </div>
-<div ng-if=showAbout>
-  about me!!!
+<div class="about" ng-if=showAbout>
+  <div class="cat-title">
+    Hsiaohan Chen // 陳筱涵
+  </div>
+  <p class="cat-sub-title">
+    Artist <br><br>
+
+    born in 1993, Taipei Taiwan. Fu-Hsin Trade & Arts School major in art and design section. The personal works are all about his experience of life. Try to figure out the struggling inside and conflict outside of man kind. Absence makes the heart grow fonder, audience are able to through the senses in their points of view in each works. Image, is the only way to make connection with the world, quite familiar language to convey himself.
+    <br><br>-
+  </p>
+  <div class="cat-title">
+    Group Exhibition:
+  </div>
+  <p class="cat-sub-title">
+    Exhibition. 2016 ,Taipei <br>
+    Exhibition. 2014 ,Taipei     
+  </p>
+  <div class="cat-title">
+    Contact:
+  </div>
+  <p class="cat-sub-title">
+    Instagram <br>
+    Facebook <br>
+    Flickr    
+  </p>
+  <div class="cat-title">
+    Email: 
+  </div>
+  <p class="cat-sub-title">
+    qqqasd600@gmail.com
+  </p>
 </div>
