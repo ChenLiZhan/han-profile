@@ -8,7 +8,7 @@ function AppCtrl($rootScope, $scope, $location, $http, lodash) {
   $scope.showPhotos = 0;
   $scope.showVideos = 0;
   $scope.showAbout = 1;
-
+  $scope.onLoad = 0;
   $rootScope.setMenu = function() {
     $http({
       method: 'GET',
@@ -20,6 +20,7 @@ function AppCtrl($rootScope, $scope, $location, $http, lodash) {
       }).success(function(responseVideo) {
         $rootScope.photosCategories = responsePhoto.data;
         $rootScope.videosCategories = responseVideo.data;
+        $scope.onLoad = true;
       })
     });
   };
@@ -45,10 +46,10 @@ function AppCtrl($rootScope, $scope, $location, $http, lodash) {
   };
 
   $scope.photosMode = function(index) {
-    $rootScope.photos = [];
-    $rootScope.photos = $rootScope.photosData[index];
-    var totalWidth = 0
-    lodash.each($rootScope.photos.items, function(item, index) {
+    var totalWidth = 0;
+    var imagesStatus = [];
+    for (var i = 0; i < $rootScope.photosData[index].items.length; ++i) imagesStatus.push(0);
+    lodash.each($rootScope.photosData[index].items, function(item, i) {
       var image = new Image();
       var width, height;
       image.onload = function() {
@@ -56,13 +57,19 @@ function AppCtrl($rootScope, $scope, $location, $http, lodash) {
         height = this.height;
         width = width * (500 / height)
         totalWidth = totalWidth + width;
-        $scope.innerBoxWidthStyle = totalWidth + 30 * $rootScope.photos.items.length;
+        imagesStatus[i] = 1;
+        if (imagesStatus.indexOf(0) === -1) {
+          $scope.$apply(function() {
+            $rootScope.photos = $rootScope.photosData[index];
+            $scope.innerBoxWidthStyle = totalWidth + 30 * $rootScope.photos.items.length;
+            $scope.showPhotos = 1;
+            $scope.showVideos = 0;
+            $scope.showAbout = 0;
+          });
+        }
       }
       image.src = item.url;
     });
-    $scope.showPhotos = 1;
-    $scope.showVideos = 0;
-    $scope.showAbout = 0;
   };
 
   $scope.videosMode = function(index) {
