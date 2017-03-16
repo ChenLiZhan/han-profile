@@ -3,6 +3,8 @@
 /* controllers */
 
 function AppCtrl($rootScope, $scope, $location, $http, lodash) {
+  // disable right click event
+  document.oncontextmenu = document.body.oncontextmenu = function() {return false;}
   $rootScope.photos = [];
   $rootScope.videos = [];
   $scope.showPhotos = 0;
