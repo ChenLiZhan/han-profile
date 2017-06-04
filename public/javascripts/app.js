@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ui.router', 'ngLodash', 'myApp.filters', 'wu.masonry']);
+var app = angular.module('myApp', ['ui.router', 'ngLodash', 'myApp.filters']);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $controllerProvider, $locationProvider) {
   // make the controllers be global

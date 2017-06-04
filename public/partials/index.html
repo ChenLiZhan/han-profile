@@ -1,17 +1,31 @@
 <style>
-  .masonry-brick {
-    width: 80%;
-    margin: 3px;
+  .wrapper{
+      width:100%;
+      height:100px;
   }
 
-  .masonry-brick img{
-    width: 100%;
+  .outer-box {
+      /*height: 100px;*/
+      overflow-y: hidden;
+      white-space: nowrap;
+      width: 100%;
+  }
+
+  .inner-box {
+      display:inline-block;
+      margin-right: 5px;
+      height:500px;
+      margin-bottom:4px;
+  }
+
+  .inner-box img {
+    height: 500px;
   }
 </style>
 
-<div ng-if="showPhotos">
-  <div masonry load-images="true">
-    <div class="masonry-brick" ng-repeat="(index, value) in photos.items">
+<div class="wrapper" ng-if="showPhotos">
+  <div class="outer-box">
+    <div class="inner-box" ng-repeat="(index, value) in photos.items">
       <img ng-src="{{value.url}}" alt="{{value.title}}" />
     </div>
   </div>
