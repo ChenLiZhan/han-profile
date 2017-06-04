@@ -4,6 +4,10 @@ body {
   font-family: "Times New Roman";
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 a {
   color: black;
   text-decoration: none;
