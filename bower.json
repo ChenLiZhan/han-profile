@@ -19,5 +19,8 @@
     "imagesloaded": "^4.1.2",
     "angular-masonry": "^0.17.0",
     "jquery-bridget": "^2.0.1"
+  },
+  "resolutions": {
+    "angular": "~1.5.8"
   }
 }
