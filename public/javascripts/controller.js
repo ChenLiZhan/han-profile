@@ -48,30 +48,35 @@ function AppCtrl($rootScope, $scope, $location, $http, lodash) {
   };
 
   $scope.photosMode = function(index) {
-    var totalWidth = 0;
-    var imagesStatus = [];
-    for (var i = 0; i < $rootScope.photosData[index].items.length; ++i) imagesStatus.push(0);
-    lodash.each($rootScope.photosData[index].items, function(item, i) {
-      var image = new Image();
-      var width, height;
-      image.onload = function() {
-        width = this.width;
-        height = this.height;
-        width = width * (500 / height)
-        totalWidth = totalWidth + width;
-        imagesStatus[i] = 1;
-        if (imagesStatus.indexOf(0) === -1) {
-          $scope.$apply(function() {
-            $rootScope.photos = $rootScope.photosData[index];
-            $scope.innerBoxWidthStyle = totalWidth + 30 * $rootScope.photos.items.length;
-            $scope.showPhotos = 1;
-            $scope.showVideos = 0;
-            $scope.showAbout = 0;
-          });
-        }
-      }
-      image.src = item.url;
-    });
+    $rootScope.photos = $rootScope.photosData[index];
+    $scope.showPhotos = 1;
+    $scope.showVideos = 0;
+    $scope.showAbout = 0;
+
+    // var totalWidth = 0;
+    // var imagesStatus = [];
+    // for (var i = 0; i < $rootScope.photosData[index].items.length; ++i) imagesStatus.push(0);
+    // lodash.each($rootScope.photosData[index].items, function(item, i) {
+    //   var image = new Image();
+    //   var width, height;
+    //   image.onload = function() {
+    //     width = this.width;
+    //     height = this.height;
+    //     width = width * (500 / height)
+    //     totalWidth = totalWidth + width;
+    //     imagesStatus[i] = 1;
+    //     if (imagesStatus.indexOf(0) === -1) {
+    //       $scope.$apply(function() {
+    //         $rootScope.photos = $rootScope.photosData[index];
+    //         $scope.innerBoxWidthStyle = totalWidth + 30 * $rootScope.photos.items.length;
+    //         $scope.showPhotos = 1;
+    //         $scope.showVideos = 0;
+    //         $scope.showAbout = 0;
+    //       });
+    //     }
+    //   }
+    //   image.src = item.url;
+    // });
   };
 
   $scope.videosMode = function(index) {
