@@ -1,5 +1,5 @@
 body {
-  padding-top: 50px;
+  padding: 50px;
   font-size: 14px;
   font-family: "Times New Roman";
 }
@@ -23,13 +23,13 @@ h1 {
 }
 
 nav {
-  width: 15%;
+  width: 23%;
   text-align: right;
   margin-right: 1.5%;
 }
 
 .content {
-  width: 83.5%;
+  width: 75.5%;
 }
 
 ul {
